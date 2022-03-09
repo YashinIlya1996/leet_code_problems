@@ -21,23 +21,14 @@ class Solution:
             while node:
                 c[node.val] += 1
                 node = node.next
-            if all([el > 1 for el in c.values()]):
-                return None
+            a = sorted([el[0] for el in c.items() if el[1] == 1])
             root = ListNode()
-            answer = root
-            current = head
-            while True:
-                while c[current.val] != 1:
-                    current = current.next
-                    if current is None:
-                        root.next = None
-                        return answer.next
-                root.next = current
-                root = root.next
+            current = root
+            for el in a:
+                current.next = ListNode(el)
                 current = current.next
-                if root is None or current is None:
-                    break
-            return answer.next
+            return root.next
+        return head
 
 
 # Input: head = [1,2,3,3,4,4,5]
@@ -51,4 +42,4 @@ def list_to_nodes(l: list):
     return root.next
 
 
-print(Solution().deleteDuplicates(list_to_nodes([2, 3, 3])))
+print(Solution().deleteDuplicates(list_to_nodes([1, 2, 3, 3, 4, 4, 5])))
