@@ -142,3 +142,4 @@ cython_debug/
 *.ods
 temp.py
 .idea/
+temp/gen_name.py
