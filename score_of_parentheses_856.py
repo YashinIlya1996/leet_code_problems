@@ -10,18 +10,18 @@ class Solution:
         Если перед ')' также была ')', то не учитываем в подсчете.
         """
         result = 0
-        happy_count = 0
+        multiple_count = 1
         prev_happy = False
         for char in s:
             if char == '(':
-                happy_count += 1
+                multiple_count *= 2
                 prev_happy = True
             elif prev_happy:
-                happy_count -= 1
-                result += 2 ** happy_count
+                multiple_count //= 2
+                result += multiple_count
                 prev_happy = False
             else:
                 prev_happy = False
-                happy_count -= 1
+                multiple_count //= 2
         return result
 
