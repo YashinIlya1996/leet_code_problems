@@ -26,8 +26,3 @@ class Solution:
                 return
             current -= 1
 
-
-if __name__ == '__main__':
-    # l = [1, 2, 3, 3, 4, 4, 5, 5]
-    l = [5, 5, 4, 3, 3, 2, 2, 1]
-    Solution().nextPermutation(l)
